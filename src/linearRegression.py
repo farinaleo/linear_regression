@@ -19,17 +19,24 @@ def trainLinearRegression():
     """
     datas = extract_csv()
     datas.sort_values(by=['km'])
-    plt.scatter(datas['km'], datas['price'])
-    plt.xlabel('km')
-    plt.ylabel('price')
-    plt.show()
+
     edit_theta0(0)
     edit_theta1(0)
     for index, row in datas.iterrows():
         optimise_thetas(datas, index, 0.007)
+
     print("Optimal theta")
     print(get_thetas())
 
+    x = [x_v for x_v in range(datas['km'].min(), datas['km'].max())]
+    print(f'find the price for {len(x)} cars')
+    y = [estimatePrice(x_v) for x_v in x]
+    print('price found')
+    plt.scatter(datas['km'], datas['price'])
+    plt.plot(x, y, color='red')
+    plt.xlabel('km')
+    plt.ylabel('price')
+    plt.show()
 
 def optimise_thetas(dataset, index, learning_rate):
     """
