@@ -1,2 +1,6 @@
 venv
 .idea
+*.mp4
+*.json
+.ipynb_checkpoints
+__pycache__
