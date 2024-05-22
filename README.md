@@ -72,7 +72,11 @@ flowchart LR
     input --> normalise --> output
 ```
 
-Z-score Normalisation is used to 
+Z-score normalisation, also known as standardisation, is a method used to scale \
+the values in a dataset so that they have $\mu = 0$ and $\sigma = 1$. \
+This transformation makes it possible to compare data on different scales. \
+
+we use :
 
 ```math
 x^{}_{norm} = {x - \mu^{}_{x} \over \sigma^{}_{x}}
