@@ -86,7 +86,9 @@ stateDiagram
     direction LR
     state train {
         direction TB
-            N_step1:Apply Gradient descent)
+            T_step1:Apply Gradient descent
+            T_step2:Unnorm thetas
+            T_step1 --> T_step2
     }  
     [*] --> train
     train --> [*]
@@ -120,4 +122,4 @@ computeGradient1 :
 Where:
 * $lr$ is the learningRate.
 * $m$ is the total number of x.
-* $estimatePrice()$ the function with for equation $y^{}_{estimated} = θ^{}_{0} + x θ^{}_{1}$
+* $estimatePrice()$ the function  $` y^{}_{estimated} = θ^{}_{0} + x * θ^{}_{1} `$
