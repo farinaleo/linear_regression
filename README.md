@@ -2,8 +2,10 @@
 # linear_regression
 
 ---
+
 This project lets you learn who to implement a linear regression to predict \
 the price of a car  based on its mileage.
+
 ---
 ### Logical structure
 ```mermaid
