@@ -9,34 +9,27 @@ the price of a car  based on its mileage.
 ---
 ### Logical structure
 ```mermaid
-flowchart LR
-    subgraph input["Input"]
-    end
-    
-    subgraph extract["Extract Data"]
-    end
-    
-    subgraph normalise["Normalise Data"]
-    end
-    
-    subgraph train["Train Model"]
-    end
-    
-    subgraph predict["Predict"]
-    end
-    
-    subgraph input2["Input"]
-    end
-    
-    subgraph output["Output"]
-    end
+stateDiagram
+    direction LR
+    state Learn {
+        direction LR
+        extract
+        normalise
+        train
+        [*] --> extract:csv file
+        extract --> normalise:dataframe
+        normalise--> train:dataframe
+    }
+    train --> predict:β<sub>0</sub> and β<sub>1</sub>
 
-    input2 -- number --> predict
-    input -- csv file --> extract
-    extract -- dataFrame --> normalise
-    normalise -- dataFrame --> train
-    train -- β<sub>0</sub> and β<sub>1</sub> --> predict
-    predict -- predict number--> output
+
+
+    state Predict {
+        direction LR
+        [*] --> predict:value
+        predict
+        predict --> [*]:predicted value
+    }
 ```
 this schema presents the steps to predict a value with data.
 
