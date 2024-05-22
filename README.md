@@ -19,16 +19,24 @@ flowchart LR
     subgraph normalise["Normalise Data"]
     end
     
-    subgraph train["Train model"]
+    subgraph train["Train Model"]
     end
     
     subgraph predict["Predict"]
     end
     
+    subgraph input2["Input"]
+    end
+    
+    subgraph output["Output"]
+    end
+
+    input2 -- number --> predict
     input -- csv file --> extract
     extract -- dataFrame --> normalise
-    normalise --> train
+    normalise -- dataFrame --> train
     train -- β<sub>0</sub> and β<sub>1</sub> --> predict
+    predict -- predict number--> output
 ```
 this schema presents the steps to predict a value with data.
 
