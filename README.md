@@ -82,5 +82,5 @@ for X, a list of value, we use :
 x^{}_{norm} = {x - \mu^{}_{X} \over \sigma^{}_{X}}
 ```
 where:
-*   $\mu^{}_{x}$ is the X mean.
-*   $\sigma^{}_{x}$  is the X standard deviation.
+*   $\mu^{}_{X}$ is the X mean.
+*   $\sigma^{}_{X}$  is the X standard deviation.
