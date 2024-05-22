@@ -84,3 +84,21 @@ x^{}_{norm} = {x - \mu^{}_{X} \over \sigma^{}_{X}}
 where:
 *   $\mu^{}_{X}$ is the X mean.
 *   $\sigma^{}_{X}$  is the X standard deviation.
+
+---
+### Train model
+```mermaid
+flowchart LR
+    subgraph input
+    end
+    
+    subgraph train["Train Model"]
+        direction TB
+            N_step1(Apply Gradient descent)
+    end
+    
+    subgraph output
+    end
+    
+    input --> train --> output
+```
