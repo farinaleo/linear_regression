@@ -3,7 +3,7 @@
 
 ---
 
-This project lets you learn who to implement a linear regression to predict \
+This project lets you learn who to implement a linear regression to predict 
 the price of a car  based on its mileage.
 
 ---
@@ -66,8 +66,8 @@ stateDiagram
     normalise --> [*]
 ```
 
-Z-score normalisation, also known as standardisation, is a method used to scale \
-the values in a dataset so that they have $\mu = 0$ and $\sigma = 1$. \
+Z-score normalisation, also known as standardisation, is a method used to scale 
+the values in a dataset so that they have $\mu = 0$ and $\sigma = 1$.
 This transformation makes it possible to compare data on different scales.
 
 for X, a list of value, we use :
@@ -92,9 +92,28 @@ stateDiagram
     train --> [*]
 ```
 
+Gradient descent is an optimisation method commonly used to adjust the coefficients
+of a linear regression model in order to minimise a cost function.
+
+```python
+def gradientDescent(data, learningRate, epoch):
+    theta0, theta1 = 0, 0 # init thetas
+    
+    for i in range(epoch): # loop {epoch} time
+        _g0 = computeGradient0(data, theta0, theta1)
+        _g1 = computeGradient1(data, theta0, theta1)
+        theta0 -= _g0
+        theta1 -= _g1
+    
+    return theta0, theta1 # return thetas
+
+```
+
+computeGradient0 :
 ```math
     \theta^{}_{0(tmp)} = lr * {1 \over m} * \sum_{i=0}^{m - 1} (estimatePrice(x^{}_{i}) − y^{}_{i})
 ```
+computeGradient1 :
 ```math
     \theta^{}_{1(tmp)} =  lr * {1 \over m}  * \sum_{i=0}^{m - 1} (estimatePrice(x^{}_{i}) − y^{}_{i}) ∗ x^{}_{i}
 ```
