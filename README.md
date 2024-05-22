@@ -100,8 +100,8 @@ def gradientDescent(data, learningRate, epoch):
     theta0, theta1 = 0, 0 # init thetas
     
     for i in range(epoch): # loop {epoch} time
-        _g0 = computeGradient0(data, theta0, theta1)
-        _g1 = computeGradient1(data, theta0, theta1)
+        _g0 = computeGradient0(data, learningRate, theta0, theta1)
+        _g1 = computeGradient1(data, learningRate, theta0, theta1)
         theta0 -= _g0
         theta1 -= _g1
     
@@ -111,9 +111,13 @@ def gradientDescent(data, learningRate, epoch):
 
 computeGradient0 :
 ```math
-    \theta^{}_{0(tmp)} = lr * {1 \over m} * \sum_{i=0}^{m - 1} (estimatePrice(x^{}_{i}) − y^{}_{i})
+    \theta^{}_{0(tmp)} = lr * {1 \over m} * \sum_{i=0}^{m - 1} (estimatePrice(x^{(i)}) − y^{(i)})
 ```
 computeGradient1 :
 ```math
-    \theta^{}_{1(tmp)} =  lr * {1 \over m}  * \sum_{i=0}^{m - 1} (estimatePrice(x^{}_{i}) − y^{}_{i}) ∗ x^{}_{i}
+    \theta^{}_{1(tmp)} =  lr * {1 \over m}  * \sum_{i=0}^{m - 1} (estimatePrice(x^{(i)}) − y^{(i)}) ∗ x^{(i)}
 ```
+Where:
+* $lr$ is the learningRate.
+* $m$ is the total number of x.
+* $estimatePrice()$ the function with for equation $y^{}_{estimated} = θ^{}_{0} + x θ^{}_{1}$
