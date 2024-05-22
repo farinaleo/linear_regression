@@ -36,41 +36,34 @@ this schema presents the steps to predict a value with data.
 ---
 ### Extract Data
 ```mermaid
-flowchart LR
-    subgraph input
-    end
-    
-    subgraph extract["Extract data"]
+stateDiagram
+    direction LR
+    state extract {
         direction TB
-            E_step1(Convert csv to pd.DataFrame)
-            E_step2(Cast data in float)
-            E_step3(Find required columns)
+            E_step1:Convert csv to pd.DataFrame
+            E_step2:Cast data in float
+            E_step3:Find required columns
             
-            E_step1 --> E_step2 --> E_step3
-    end
-    
-    subgraph output
-    end
-    
-    input --> extract --> output
+            E_step1 --> E_step2
+            E_step2 --> E_step3
+    }
+
+    [*] --> extract
+    extract --> [*]
 ```
 
 ---
 ### Normalise Data
 ```mermaid
-flowchart LR
-    subgraph input
-    end
+stateDiagram
+    direction LR
     
-    subgraph normalise["Normalise data"]
+    state normalise{
         direction TB
-            N_step1(Apply Z-score Normalisation)
-    end
-    
-    subgraph output
-    end
-    
-    input --> normalise --> output
+            N_step1:(Apply Z-score Normalisation)
+    }
+    [*] --> normalise
+    normalise --> [*]
 ```
 
 Z-score normalisation, also known as standardisation, is a method used to scale \
@@ -89,19 +82,14 @@ where:
 ---
 ### Train model
 ```mermaid
-flowchart LR
-    subgraph input
-    end
-    
-    subgraph train["Train Model"]
+stateDiagram
+    direction LR
+    state train {
         direction TB
-            N_step1(Apply Gradient descent)
-    end
-    
-    subgraph output
-    end
-    
-    input --> train --> output
+            N_step1:Apply Gradient descent)
+    }  
+    [*] --> train
+    train --> [*]
 ```
 
 ```math
