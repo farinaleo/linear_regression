@@ -126,4 +126,4 @@ Where:
 * $estimatePrice()$ the function  $` y^{}_{estimated} = θ^{}_{0} + x * θ^{}_{1} `$
 
 #### denormalise thetas
-
+As thetas are calculated using standardised data, we have to denormalise them to make them match the original data.
