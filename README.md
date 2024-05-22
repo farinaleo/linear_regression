@@ -87,12 +87,13 @@ stateDiagram
     state train {
         direction TB
             T_step1:Apply Gradient descent
-            T_step2:Unnorm thetas
+            T_step2:Denormalise thetas
             T_step1 --> T_step2
     }  
     [*] --> train
     train --> [*]
 ```
+#### Gradient descent
 
 Gradient descent is an optimisation method commonly used to adjust the coefficients
 of a linear regression model in order to minimise a cost function.
@@ -123,3 +124,6 @@ Where:
 * $lr$ is the learningRate.
 * $m$ is the total number of x.
 * $estimatePrice()$ the function  $` y^{}_{estimated} = θ^{}_{0} + x * θ^{}_{1} `$
+
+#### denormalise thetas
+
