@@ -72,4 +72,6 @@ flowchart LR
 
 Z-score Normalisation is used to 
 
-$${ x<sub>norm</sub> = {x - x} \over o }$$
+```math
+x^{}_{norm} = {x - \mu^{}_{x} \over \sigma^{}_{x}}
+```
