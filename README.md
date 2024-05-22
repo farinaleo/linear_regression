@@ -77,3 +77,6 @@ Z-score Normalisation is used to
 ```math
 x^{}_{norm} = {x - \mu^{}_{x} \over \sigma^{}_{x}}
 ```
+where:
+*   $\mu^{}_{x}$ is the x set mean.
+*   $\sigma^{}_{x}$  is the x set standard deviation.
