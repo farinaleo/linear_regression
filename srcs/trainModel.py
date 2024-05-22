@@ -1,12 +1,9 @@
-import os
-import json
 import pandas as pd
-import matplotlib.pyplot as plt
-import matplotlib.animation as anim
+from .plotModel import plotModel
 from .computeTmpThetas import computeTmpTheta0, computeTmpTheta1
 
 
-def trainModel(df: pd.DataFrame, epoch: int = 500, learningRate: float = 0.5, plot: bool=False) -> list:
+def trainModel(df: pd.DataFrame, epoch: int = 500, learningRate: float = 0.5, plot: bool = False) -> list:
     theta0 = 0
     theta1 = 0
     savedThetas = [(theta0, theta1)]
@@ -20,4 +17,7 @@ def trainModel(df: pd.DataFrame, epoch: int = 500, learningRate: float = 0.5, pl
         theta1 -= _tmpTheta1
         savedThetas.append((theta0, theta1))
 
-    return [theta0, theta1] if not plot else [theta0, theta1, savedThetas]
+    if plot:
+        plotModel(df, savedThetas)
+
+    return [theta0, theta1]
