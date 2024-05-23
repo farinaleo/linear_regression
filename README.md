@@ -10,9 +10,7 @@ the price of a car  based on its mileage.
 ### Logical structure
 ```mermaid
 stateDiagram
-    direction LR
     state Learn {
-        direction LR
         extract
         normalise
         train
@@ -20,15 +18,23 @@ stateDiagram
         extract --> normalise:dataframe
         normalise--> train:dataframe
     }
-    train --> predict:β<sub>0</sub> and β<sub>1</sub>
-
+   train --> Evaluate:β<sub>0</sub> and β<sub>1</sub>
+   train --> predict:β<sub>0</sub> and β<sub>1</sub>
 
 
     state Predict {
-        direction LR
         [*] --> predict:value
         predict
         predict --> [*]:predicted value
+    }
+    
+    state Evaluate {
+        R2
+        AR2: Adjusted R2
+        MAE
+        MSE
+        RMSE
+        MAPE
     }
 ```
 this schema presents the steps to predict a value with data.
@@ -192,3 +198,33 @@ stateDiagram
 ```
 linear equation:
 $$y_{predict} = \beta_0 + \beta_1 * x$$
+
+---
+
+### Evaluate
+
+```mermaid
+stateDiagram
+    direction LR
+    state Evaluate {
+        direction LR        
+        R2
+        AR2: Adjusted R2
+        MAE
+        MSE
+        RMSE
+        MAPE
+    }
+    [*] --> R2
+    R2 --> [*]
+    [*] --> AR2
+    AR2 --> [*]
+    [*] --> MAE
+    MAE --> [*]
+    [*] --> MSE
+    MSE --> [*]
+    [*] --> RMSE
+    RMSE --> [*]
+    [*] --> MAPE
+    MAPE --> [*]
+```
