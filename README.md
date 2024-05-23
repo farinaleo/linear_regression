@@ -228,47 +228,46 @@ stateDiagram
     [*] --> MAPE
     MAPE --> [*]
 ```
-Les mesures de performance sont essentielles pour évaluer la qualité d un modèle de régression linéaire.
+Performance measures are essential for assessing the quality of a linear regression model.
 
-### 1. **R² (Coefficient de Détermination)**
-   - **Définition** : R² mesure la proportion de la variance totale des données qui est expliquée par le modèle de régression. 
-   - **Interprétation** : Une valeur de R² proche de 1 indique que le modèle explique bien la variabilité des données. Par exemple, un R² de 0,8 signifie que 80 % de la variance des données est expliquée par le modèle.
-   - **Formule** :
+### 1. **R² (Determination coefficient)**
+   - **Definition** : R² measures the proportion of the total variance in the data that is explained by the regression model. 
+   - **Interpretation** : An R² value close to 1 indicates that the model explains the variability of the data well. For example, an R² of 0.8 means that 80% of the variance in the data is explained by the model.
+   - **Formula** :
 ```math
     R^2 = 1 - \frac{\Sigma^{n}_{i=0} (y_i - \hat{y}_i)^2}{\Sigma^{n}_{i=0} (y_i - \bar{y})^2}
 ```
 
-où $` y_i `$ sont les valeurs observées, $` \hat{y}_i `$ sont les valeurs prédites, et $` \bar{y} `$ est la moyenne des valeurs observées.
+where $` y_i `$ are the observed values, $` \hat{y}_i `$ are the predicted values, and $` \bar{y} `$ is the average of the observed values.
 
 ### 2. **MAE (Mean Absolute Error)**
-   - **Définition** : MAE mesure la moyenne des erreurs absolues entre les valeurs observées et prédites.
-   - **Interprétation** : Une MAE plus faible indique un modèle plus précis. Elle donne une idée de l erreur moyenne que l on peut attendre des prédictions du modèle.
-   - **Formule** :
+   - **Definition** : MAE measures the average of the absolute errors between the observed and predicted values.
+   - **Interpretation** : A lower MAE indicates a more accurate model. It gives an idea of the average error that can be expected from the model's predictions.
+   - **Formula** :
      $$MAE = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|$$
 
 ### 3. **MSE (Mean Squared Error)**
-   - **Définition** : MSE mesure la moyenne des carrés des erreurs entre les valeurs observées et prédites.
-   - **Interprétation** : Comme les erreurs sont élevées au carré, les erreurs plus importantes sont pénalisées plus sévèrement. Une MSE plus faible indique un meilleur modèle.
-   - **Formule** :
+   - **Definition** : MSE measures the mean square error between observed and predicted values.
+   - **Interpretation** : As the errors are squared, larger errors are penalised more severely. A lower MSE indicates a better model.
+   - **Formula** :
      $$MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$
 
 ### 4. **RMSE (Root Mean Squared Error)**
-   - **Définition** : RMSE est la racine carrée de la moyenne des carrés des erreurs.
-   - **Interprétation** : RMSE donne une idée de l ampleur de l erreur typique. Comme MSE, elle pénalise plus sévèrement les grandes erreurs. Une RMSE plus faible indique un meilleur modèle.
-   - **Formule** :
+   - **Definition** : RMSE is the square root of the mean square error.
+   - **Interpretation** : RMSE gives an idea of the magnitude of the typical error. Like MSE, it penalises large errors more severely. A lower RMSE indicates a better model.
+   - **Formula** :
      $$RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}$$
 
 ### 5. **MAPE (Mean Absolute Percentage Error)**
-   - **Définition** : MAPE mesure la moyenne des erreurs absolues en pourcentage des valeurs observées.
-   - **Interprétation** : MAPE est utile pour comprendre l erreur relative en pourcentage, ce qui peut être plus intuitif que les erreurs absolues.
-   - **Formule** :
+   - **Definition** : MAPE measures the average absolute error as a percentage of the observed values.
+   - **Interpretation** : MAPE is useful for understanding relative error as a percentage, which can be more intuitive than absolute errors.
+   - **Formula** :
      $$MAPE = \frac{1}{n} \sum_{i=1}^{n} \left| \frac{y_i - \hat{y}_i}{y_i} \right| \times 100$$
 
 ### 6. **Adjusted R²**
-   - **Définition** : L ajusté R² tient compte du nombre de prédicteurs dans le modèle et pénalise les modèles trop complexes.
-   - **Interprétation** : Il est particulièrement utile lorsque vous comparez des modèles avec un nombre différent de variables indépendantes. Une valeur plus élevée indique un meilleur modèle ajusté.
-   - **Formule** :
+   - **Definition** : The R² adjustment takes into account the number of predictors in the model and penalises models that are too complex.
+   - **Interpretation** : It is particularly useful when comparing models with a different number of independent variables. A higher value indicates a better fitted model.
+   - **Formula** :
      $$R^2_{ajusté} = 1 - \left( \frac{(1 - R^2)(n - 1)}{n - p - 1} \right)$$
-     où $` n `$ est le nombre d observations et $` p `$ le nombre de prédicteurs.
+     where $` n `$ is the number of observations and $` p `$ is the number of predictors.
 
-En utilisant ces mesures de performance, vous pouvez obtenir une vue d ensemble de la précision et de la fiabilité de votre modèle de régression linéaire. Chaque mesure a ses avantages et ses inconvénients, et souvent, il est utile de regarder plusieurs de ces mesures pour évaluer la performance globale de votre modèle.
