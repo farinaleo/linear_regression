@@ -168,7 +168,7 @@ Regroupons les termes constants :
 
 ### Identification des coefficients dénormalisés
 
-En comparant cette équation avec la forme standard $`y = \beta_0 + \beta_1 \cdot x$`, nous pouvons identifier :
+En comparant cette équation avec la forme standard $`y = \beta_0 + \beta_1 \cdot x`$, nous pouvons identifier :
    $$\beta_1 = \theta_1 \cdot \frac{\sigma_y}{\sigma_x}$$
    $$\beta_0 = \theta_0 \cdot \sigma_y + \mu_y - \theta_1 \cdot \frac{\sigma_y \cdot \mu_x}{\sigma_x}$$
 
@@ -178,4 +178,4 @@ Ainsi, nous obtenons les équations de dénormalisation des coefficients de la r
    $$\beta_1 = \theta_1 \cdot \frac{\sigma_y}{\sigma_x}$$
    $$\beta_0 = \mu_y + \sigma_y \cdot (\theta_0 - \theta_1 \cdot \frac{\mu_x}{\sigma_x})$$
 
-Cette démonstration montre comment transformer les coefficients $`\theta_0`$ et $`\theta_1\`$ obtenus sur des données normalisées en coefficients $`\beta_0\`$ et $`\beta_1\`$ applicables aux données d'origine.
+Cette démonstration montre comment transformer les coefficients $`\theta_0`$ et $`\theta_1`$ obtenus sur des données normalisées en coefficients $`\beta_0`$ et $`\beta_1`$ applicables aux données d'origine.
