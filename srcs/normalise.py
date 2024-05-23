@@ -13,3 +13,10 @@ def normaliseDf(df: pd.DataFrame, cols=None) -> pd.DataFrame:
         df_cp[col] = df_cp[col].apply(lambda x: (x - df[col].mean()) / (df[col].std()))
 
     return df_cp
+
+
+def denormThetas(thetas: list[float], df: pd.DataFrame) -> list[float]:
+    t1 = thetas[1] * (df['price'].std() / df['km'].std())
+    t0 = df['price'].mean() + df['price'].std() * (thetas[0] - (thetas[1] * (df['km'].mean() / df['km'].std())))
+
+    return [t0, t1]
