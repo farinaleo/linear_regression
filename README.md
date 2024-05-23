@@ -127,3 +127,55 @@ Where:
 
 #### denormalise thetas
 As thetas are calculated using standardised data, we have to denormalise them to make them match the original data.
+
+Bien sûr, voici une démonstration détaillée pour obtenir les équations de dénormalisation des coefficients $`\theta_0`$ et $`\theta_1`$.
+
+### Équations Normalisées
+
+1. **Données normalisées :**
+   $$x_{\text{norm}} = \frac{x - \mu_x}{\sigma_x}$$
+   $$y_{\text{norm}} = \frac{y - \mu_y}{\sigma_y}$$
+
+2. **Régression linéaire sur les données normalisées :**
+   $$y_{\text{norm}} = \theta_0 + \theta_1 \cdot x_{\text{norm}}$$
+
+### Passer de $`y_{\text{norm}}`$ à $`y`$
+
+Pour retrouver $`y`$ à partir de $`y_{\text{norm}}`$, on utilise la relation inverse de la normalisation :
+   $$y = y_{\text{norm}} \cdot \sigma_y + \mu_y$$
+
+Substituons $`y_{\text{norm}}`$ de l'équation normalisée :
+   $$y = (\theta_0 + \theta_1 \cdot x_{\text{norm}}) \cdot \sigma_y + \mu_y$$
+
+### Passer de $`x_{\text{norm}}`$ à $`x`$
+
+Pour $`x_{\text{norm}}`$, on utilise aussi la relation inverse de la normalisation :
+   $$x_{\text{norm}} = \frac{x - \mu_x}{\sigma_x} \implies x = x_{\text{norm}} \cdot \sigma_x + \mu_x$$
+
+Substituons $`x_{\text{norm}}`$ dans l'équation du modèle :
+   $$y = \left( \theta_0 + \theta_1 \cdot \frac{x - \mu_x}{\sigma_x} \right) \cdot \sigma_y + \mu_y$$
+
+### Simplification
+
+Développons l'équation :
+   $$y = \left( \theta_0 \cdot \sigma_y + \theta_1 \cdot \frac{\sigma_y}{\sigma_x} \cdot (x - \mu_x) \right) + \mu_y$$
+
+Réorganisons l'équation pour isoler les termes constants et ceux en fonction de $`x`$ :
+   $$y = \theta_0 \cdot \sigma_y + \mu_y + \theta_1 \cdot \frac{\sigma_y}{\sigma_x} \cdot x - \theta_1 \cdot \frac{\sigma_y}{\sigma_x} \cdot \mu_x$$
+
+Regroupons les termes constants :
+   $$y = \left( \theta_0 \cdot \sigma_y + \mu_y - \theta_1 \cdot \frac{\sigma_y \cdot \mu_x}{\sigma_x} \right) + \theta_1 \cdot \frac{\sigma_y}{\sigma_x} \cdot x$$
+
+### Identification des coefficients dénormalisés
+
+En comparant cette équation avec la forme standard $`y = \beta_0 + \beta_1 \cdot x$`, nous pouvons identifier :
+   $$\beta_1 = \theta_1 \cdot \frac{\sigma_y}{\sigma_x}$$
+   $$\beta_0 = \theta_0 \cdot \sigma_y + \mu_y - \theta_1 \cdot \frac{\sigma_y \cdot \mu_x}{\sigma_x}$$
+
+### Conclusion
+
+Ainsi, nous obtenons les équations de dénormalisation des coefficients de la régression linéaire :
+   $$\beta_1 = \theta_1 \cdot \frac{\sigma_y}{\sigma_x}$$
+   $$\beta_0 = \mu_y + \sigma_y \cdot (\theta_0 - \theta_1 \cdot \frac{\mu_x}{\sigma_x})$$
+
+Cette démonstration montre comment transformer les coefficients $`\theta_0`$ et $`\theta_1\`$ obtenus sur des données normalisées en coefficients $`\beta_0\`$ et $`\beta_1\`$ applicables aux données d'origine.
