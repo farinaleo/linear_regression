@@ -3,7 +3,11 @@ import math
 
 
 def rSquare(df: pd.DataFrame) -> float:
-
+    """
+    Calculates the R^2 score.
+    :param df: data.
+    :return: score.
+    """
     mean = df['price'].mean()
     sumMean = 0
     sumPredict = 0
@@ -16,6 +20,11 @@ def rSquare(df: pd.DataFrame) -> float:
 
 
 def mae(df: pd.DataFrame) -> float:
+    """
+    Calculates the MEA score.
+    :param df: data.
+    :return: score.
+    """
     sumPredict = 0
 
     for _, row in df.iterrows():
@@ -25,6 +34,11 @@ def mae(df: pd.DataFrame) -> float:
 
 
 def mse(df: pd.DataFrame) -> float:
+    """
+    Calculates the MSE score.
+    :param df: data.
+    :return: score.
+    """
     sumPredict = 0
 
     for _, row in df.iterrows():
@@ -34,10 +48,20 @@ def mse(df: pd.DataFrame) -> float:
 
 
 def rmse(df: pd.DataFrame) -> float:
+    """
+    Calculates the RMSE score.
+    :param df: data.
+    :return: score.
+    """
     return math.sqrt(mse(df))
 
 
 def mape(df: pd.DataFrame) -> float:
+    """
+    Calculates the MAPE score.
+    :param df: data.
+    :return: score.
+    """
     sumPredict = 0
 
     for _, row in df.iterrows():
@@ -47,7 +71,9 @@ def mape(df: pd.DataFrame) -> float:
 
 
 def adjustedRSquare(df: pd.DataFrame) -> float:
+    """
+    Calculates the adjusted R^2 score.
+    :param df: data.
+    :return: score.
+    """
     return 1 - ((1 - rSquare(df) * (len(df) - 1)) / (len(df) - 2))
-
-# cpDf = df.copy(deep=True)
-# cpDf['predict'] = cpDf['km'].apply(lambda x: thetas[0] + (thetas[1] * x))
