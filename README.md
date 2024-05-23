@@ -170,8 +170,25 @@ By comparing this equation with the standard form $`y = \beta_0 + \beta_1 \cdot 
    $$\beta_1 = \theta_1 \cdot \frac{\sigma_y}{\sigma_x}$$
    $$\beta_0 = \theta_0 \cdot \sigma_y + \mu_y - \theta_1 \cdot \frac{\sigma_y \cdot \mu_x}{\sigma_x}$$
 
-### Conclusion
+#### Conclusion
 
 This gives us the denormalisation equations for the coefficients of the linear regression:
    $$\beta_1 = \theta_1 \cdot \frac{\sigma_y}{\sigma_x}$$
    $$\beta_0 = \mu_y + \sigma_y \cdot (\theta_0 - \theta_1 \cdot \frac{\mu_x}{\sigma_x})$$
+
+---
+
+### Predict
+
+```mermaid
+stateDiagram
+    direction LR
+    state predict {
+        direction TB
+            T_step1:Apply the linear equation
+    }  
+    [*] --> predict
+    predict --> [*]
+```
+linear equation:
+$$y_{predict} = \beta_0 + \beta_1 * x$$
