@@ -4,6 +4,12 @@ import matplotlib.animation as anim
 
 
 def plotModel(df: pd.DataFrame, thetas: list):
+    """
+    Plot the training process.
+    :param df: The training data.
+    :param thetas: list of thetas.
+    :return:
+    """
     fig = plt.figure()
     ax = fig.add_subplot(1, 1, 1)
     maxFrames = len(thetas)
@@ -11,6 +17,7 @@ def plotModel(df: pd.DataFrame, thetas: list):
     dfCp = df.copy(deep=True)
 
     def update(i):
+        """anim graph"""
         if len(thetas) > 0:
             t = thetas.pop(0)
             dfCp['test'] = dfCp['km'].apply(lambda x: t[0] + t[1] * x)

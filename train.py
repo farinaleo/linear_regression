@@ -18,6 +18,12 @@ def options_parser():
 
 
 def saveThetas(thetas: list[float], fileName: str = 'thetas.json'):
+    """
+    Save the trained model in a json file.
+    :param thetas: model.
+    :param fileName: json file.
+    :return:
+    """
     try:
         data = {'theta0': str(thetas[0]), 'theta1': str(thetas[1])}
 

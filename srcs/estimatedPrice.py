@@ -3,6 +3,13 @@ import json
 
 
 def estimatedPrice(mileage: int, thetas: tuple = None, srcJson: str = 'thetas.json') -> float:
+    """
+    Estimates the price of a given car based on its mileage. The function uses given thetas or thetas from a given json file.
+    :param mileage: The mileage of the car.
+    :param thetas: Thetas for the equation (y = θ0 + θ1 * x).
+    :param srcJson: The json file.
+    :return: the supposed price (or 0 in case of error).
+    """
     if not os.path.exists(srcJson):
         raise ValueError(f'srcJson does not exist: {srcJson}')
     try:
