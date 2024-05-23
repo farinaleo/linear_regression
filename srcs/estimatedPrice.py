@@ -9,7 +9,9 @@ def estimatedPrice(mileage: int, thetas: tuple = None, srcJson: str = 'thetas.js
         if thetas:
             return thetas[0] + mileage * thetas[1]
         else:
-            with json.load(open(srcJson, 'r')) as thetas:
-                return thetas['theta0'] + mileage * thetas['theta1']
+            with open(srcJson, 'r') as file:
+                thetasJson = json.load(file)
+                print(thetasJson)
+                return float(thetasJson['theta0']) + mileage * float(thetasJson['theta1'])
     except Exception:
         return 0
