@@ -261,7 +261,7 @@ Les mesures de performance sont essentielles pour évaluer la qualité d'un mod�
    - **Formule** :
      $$MAPE = \frac{1}{n} \sum_{i=1}^{n} \left| \frac{y_i - \hat{y}_i}{y_i} \right| \times 100$$
 
-### 6. **Adjusted R² (R² Ajusté)**
+### 6. **Adjusted R²**
    - **Définition** : L'ajusté R² tient compte du nombre de prédicteurs dans le modèle et pénalise les modèles trop complexes.
    - **Interprétation** : Il est particulièrement utile lorsque vous comparez des modèles avec un nombre différent de variables indépendantes. Une valeur plus élevée indique un meilleur modèle ajusté.
    - **Formule** :
