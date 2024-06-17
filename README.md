@@ -115,6 +115,23 @@ with :
 ```
 - $y$ the given result
 
+To find the best $\theta_0$ and $\theta_1$ we want to compute, for each epoch:
+```math
+    \theta_0 = \theta_0(prev) - \alpha * {\predict L \over \predict \theta_0}
+```
+and
+```math
+    \theta_1 = \theta_1(prev) - \alpha * {\predict L \over \predict \theta_1}
+```
+
+where :
+```math
+    {\predict L \over \predict \theta_0} = 
+```
+and
+```math
+    {\predict L \over \predict \theta_1} = 
+```
 
 
 ```python
