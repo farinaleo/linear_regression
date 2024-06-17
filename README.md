@@ -146,10 +146,10 @@ def gradientDescent(data, learning_rate, epoch):
     theta0, theta1 = 0, 0 # init thetas
     
     for i in range(epoch): # loop {epoch} time
-        _g0 = compute_partial_derivative_0(data, theta0, theta1)
-        _g1 = compute_partial_derivative_1(data, theta0, theta1)
-        theta0 -= learning_rate * _g0
-        theta1 -= learning_rate * _g1
+        _d0 = compute_partial_derivative_0(data, theta0, theta1)
+        _d1 = compute_partial_derivative_1(data, theta0, theta1)
+        theta0 -= learning_rate * _d0
+        theta1 -= learning_rate * _d1
     
     return theta0, theta1 # return thetas
 
