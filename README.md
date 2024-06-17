@@ -127,11 +127,15 @@ and
 where :
 ```math
     {\partial L \over \partial \theta_0} =  {\partial L \over \partial a} *  {\partial a \over \partial \theta_0}
+```
+```math
     {\partial L \over \partial \theta_0} = { -{1 \over m - 1} \sum^{m -1}_{i = 0}(a^{(i)}) - y^{(i)}}
 ```
 and
 ```math
     {\partial L \over \partial \theta_1} = {\partial L \over \partial a} *  {\partial a \over \partial \theta_1}
+```
+```math
     {\partial L \over \partial \theta_1} = { -{1 \over m - 1} \sum^{m -1}_{i = 0}(a^{(i)}) - y^{(i)} * x^{(i)}}
 ```
 
