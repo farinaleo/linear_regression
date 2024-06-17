@@ -117,11 +117,11 @@ with :
 
 To find the best $\theta_0$ and $\theta_1$ we want to compute, for each epoch:
 ```math
-    \theta_0 = \theta_0(prev) - \alpha * {\partial L \over \partial \theta_0}
+    \theta_0 = \theta_{0(prev)} - \alpha * {\partial L \over \partial \theta_0}
 ```
 and
 ```math
-    \theta_1 = \theta_1(prev) - \alpha * {\partial L \over \partial \theta_1}
+    \theta_1 = \theta_1{(prev)} - \alpha * {\partial L \over \partial \theta_1}
 ```
 
 where :
