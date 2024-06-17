@@ -1,6 +1,6 @@
 import pandas as pd
 from .plotModel import plot_model
-from .computeTmpThetas import compute_partial_derivative_0, compute_partial_derivative_1
+from .computePartialDerivative import compute_partial_derivative_0, compute_partial_derivative_1
 from tqdm import tqdm
 
 
@@ -18,10 +18,10 @@ def train_model(df: pd.DataFrame, epoch: int = 500, learning_rate: float = 0.5, 
     saved_thetas = [(theta0, theta1)]
 
     for _ in tqdm(range(epoch), desc="Progress", ncols=100, colour='blue'):
-        _t0_tmp = compute_partial_derivative_0(df, (theta0, theta1), learning_rate=learning_rate)
-        _t1_tmp = compute_partial_derivative_1(df, (theta0, theta1), learning_rate=learning_rate)
-        theta0 -= _t0_tmp
-        theta1 -= _t1_tmp
+        _d0 = compute_partial_derivative_0(df, (theta0, theta1))
+        _d1 = compute_partial_derivative_1(df, (theta0, theta1))
+        theta0 -= learning_rate * _d0
+        theta1 -= learning_rate * _d1
         saved_thetas.append((theta0, theta1))
 
     if plot:
