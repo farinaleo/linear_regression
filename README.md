@@ -106,7 +106,7 @@ of a linear regression model in order to minimise a cost function.
 We search to minimise the log loss function:
 
 ```math
-    L = {{1 \over m} \sum^{m - 1}_{i = 0} y^{(i)} {\log{a^{(i)}} + (1 - y^{(i)}) \log{1 - a^{(i)}}}}
+    L = {-{1 \over m} \sum^{m - 1}_{i = 0} y^{(i)} {\log(a^{(i))} + (1 - y^{(i)}) \log(1 - a^{(i)})}}
 ```
 
 
