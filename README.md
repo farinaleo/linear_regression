@@ -11,7 +11,7 @@ the price of a car  based on its mileage.
 - Run `python train.py` to train the model. With `-f <path>` you can change the data file,
 `-l <number>` you can modify the learning rate, `-e <number>` you can change the number of epochs
 and `-p` display the learning step as a graph.
-- Run `python estimate.py` to obtain the price of your according to its mileage.
+- Run `python estimate.py` to obtain the price of your car according to its mileage.
 - Run `python evaluate.py` to show the evaluation of performance of the trained model.
 ---
 ### Logical structure
@@ -120,7 +120,7 @@ with :
 ```math
     a(x) = \theta_0 + \theta_1 * x
 ```
-- $y$ the given result
+- $y^{(i)}$ the observed value
 
 To find the best $\theta_0$ and $\theta_1$ we want to compute, for each epoch:
 ```math
