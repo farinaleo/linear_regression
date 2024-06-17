@@ -129,36 +129,37 @@ where :
     {\partial L \over \partial \theta_0} =  {\partial L \over \partial a} *  {\partial a \over \partial \theta_0}
 ```
 ```math
-    {\partial L \over \partial \theta_0} = { -{1 \over m - 1} \sum^{m -1}_{i = 0}(a^{(i)}) - y^{(i)}}
+    {\partial L \over \partial \theta_0} = { -{1 \over m - 1} \sum^{m -1}_{i = 0}(a^{(i)} - y^{(i)})}
 ```
 and
 ```math
     {\partial L \over \partial \theta_1} = {\partial L \over \partial a} *  {\partial a \over \partial \theta_1}
 ```
 ```math
-    {\partial L \over \partial \theta_1} = { -{1 \over m - 1} \sum^{m -1}_{i = 0}(a^{(i)}) - y^{(i)} * x^{(i)}}
+    {\partial L \over \partial \theta_1} = { -{1 \over m - 1} \sum^{m -1}_{i = 0}(a^{(i)} - y^{(i)}) * x^{(i)}}
 ```
+In this case $\alpha$ can be associate to our learning rate.
 
 
 ```python
-def gradientDescent(data, learningRate, epoch):
+def gradientDescent(data, learning_rate, epoch):
     theta0, theta1 = 0, 0 # init thetas
     
     for i in range(epoch): # loop {epoch} time
-        _g0 = computeGradient0(data, learningRate, theta0, theta1)
-        _g1 = computeGradient1(data, learningRate, theta0, theta1)
-        theta0 -= _g0
-        theta1 -= _g1
+        _g0 = compute_partial_derivative_0(data, theta0, theta1)
+        _g1 = compute_partial_derivative_1(data, theta0, theta1)
+        theta0 -= learning_rate * _g0
+        theta1 -= learning_rate * _g1
     
     return theta0, theta1 # return thetas
 
 ```
 
-computeGradient0 :
+partial_derivative_0 :
 ```math
     \theta^{}_{0(tmp)} = lr * {1 \over m} * \sum_{i=0}^{m - 1} (estimatePrice(x^{(i)}) − y^{(i)})
 ```
-computeGradient1 :
+partial_derivative_1 :
 ```math
     \theta^{}_{1(tmp)} =  lr * {1 \over m}  * \sum_{i=0}^{m - 1} (estimatePrice(x^{(i)}) − y^{(i)}) ∗ x^{(i)}
 ```
