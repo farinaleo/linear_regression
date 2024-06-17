@@ -111,7 +111,7 @@ We search to minimise the log loss function:
 with :
 - $a$ the equation of prediction.
 ```math
-    a = \theta_0 + \theta_1 * x
+    a(x) = \theta_0 + \theta_1 * x
 ```
 - $y$ the given result
 
