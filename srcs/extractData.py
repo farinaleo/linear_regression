@@ -1,9 +1,8 @@
 import os
-from pathlib import Path
 import pandas as pd
 
 
-def extractData(src: str, sep: str = ',', head=None) -> pd.DataFrame:
+def extract_data(src: str, sep: str = ',', head=None) -> pd.DataFrame:
     """
     Extract data from a csv file and clean it.
     :param src: the path to the csv file.

@@ -2,21 +2,21 @@ import pandas as pd
 import math
 
 
-def rSquare(df: pd.DataFrame) -> float:
+def r_square(df: pd.DataFrame) -> float:
     """
     Calculates the R^2 score.
     :param df: data.
     :return: score.
     """
     mean = df['price'].mean()
-    sumMean = 0
-    sumPredict = 0
+    sum_mean = 0
+    sum_predict = 0
 
     for _, row in df.iterrows():
-        sumPredict += math.pow(row['price'] - row['predict'], 2)
-        sumMean += math.pow((row['price'] - mean), 2)
+        sum_predict += math.pow(row['price'] - row['predict'], 2)
+        sum_mean += math.pow((row['price'] - mean), 2)
 
-    return 1 - (sumPredict / sumMean)
+    return 1 - (sum_predict / sum_mean)
 
 
 def mae(df: pd.DataFrame) -> float:
@@ -25,12 +25,12 @@ def mae(df: pd.DataFrame) -> float:
     :param df: data.
     :return: score.
     """
-    sumPredict = 0
+    sum_predict = 0
 
     for _, row in df.iterrows():
-        sumPredict += math.fabs(row['price'] - row['predict'])
+        sum_predict += math.fabs(row['price'] - row['predict'])
 
-    return (1 / len(df)) * sumPredict
+    return (1 / len(df)) * sum_predict
 
 
 def mse(df: pd.DataFrame) -> float:
@@ -39,12 +39,12 @@ def mse(df: pd.DataFrame) -> float:
     :param df: data.
     :return: score.
     """
-    sumPredict = 0
+    sum_predict = 0
 
     for _, row in df.iterrows():
-        sumPredict += math.pow((row['price'] - row['predict']), 2)
+        sum_predict += math.pow((row['price'] - row['predict']), 2)
 
-    return (1 / len(df)) * sumPredict
+    return (1 / len(df)) * sum_predict
 
 
 def rmse(df: pd.DataFrame) -> float:
@@ -62,18 +62,18 @@ def mape(df: pd.DataFrame) -> float:
     :param df: data.
     :return: score.
     """
-    sumPredict = 0
+    sum_predict = 0
 
     for _, row in df.iterrows():
-        sumPredict += math.fabs((row['price'] - row['predict']) / row['price'])
+        sum_predict += math.fabs((row['price'] - row['predict']) / row['price'])
 
-    return (1 / len(df)) * sumPredict * 100
+    return (1 / len(df)) * sum_predict * 100
 
 
-def adjustedRSquare(df: pd.DataFrame) -> float:
+def adjusted_r_square(df: pd.DataFrame) -> float:
     """
     Calculates the adjusted R^2 score.
     :param df: data.
     :return: score.
     """
-    return 1 - ((1 - rSquare(df) * (len(df) - 1)) / (len(df) - 2))
+    return 1 - ((1 - r_square(df) * (len(df) - 1)) / (len(df) - 2))
