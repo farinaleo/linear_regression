@@ -157,11 +157,11 @@ def gradientDescent(data, learning_rate, epoch):
 
 partial_derivative_0 :
 ```math
-    partial_derivative_0 = {1 \over m} * \sum_{i=0}^{m - 1} (estimatePrice(x^{(i)}) − y^{(i)})
+    partial\_derivative_0 = {1 \over m} * \sum_{i=0}^{m - 1} (estimatePrice(x^{(i)}) − y^{(i)})
 ```
 partial_derivative_1 :
 ```math
-    partial_derivative_1 =  {1 \over m}  * \sum_{i=0}^{m - 1} (estimatePrice(x^{(i)}) − y^{(i)}) ∗ x^{(i)}
+    partial\_derivative_1 =  {1 \over m}  * \sum_{i=0}^{m - 1} (estimatePrice(x^{(i)}) − y^{(i)}) ∗ x^{(i)}
 ```
 Where:
 * $lr$ is the learningRate.
