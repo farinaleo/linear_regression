@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def normaliseDf(df: pd.DataFrame, cols=None) -> pd.DataFrame:
+def normalise_df(df: pd.DataFrame, cols=None) -> pd.DataFrame:
     """
     Normalise a dataframe to obtain a μ = 0 and σ = 1 with the Z-score.
     :param df: The dataframe to normalise.
@@ -21,7 +21,7 @@ def normaliseDf(df: pd.DataFrame, cols=None) -> pd.DataFrame:
     return df_cp
 
 
-def denormThetas(thetas: list[float], df: pd.DataFrame) -> list[float]:
+def denorm_thetas(thetas: list[float], df: pd.DataFrame) -> list[float]:
     """
     Denormalise thetas trained on a normalised dataframe.
     :param thetas: normalised thetas.

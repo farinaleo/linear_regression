@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as anim
 
 
-def plotModel(df: pd.DataFrame, thetas: list):
+def plot_model(df: pd.DataFrame, thetas: list):
     """
     Plot the training process.
     :param df: The training data.
@@ -12,19 +12,19 @@ def plotModel(df: pd.DataFrame, thetas: list):
     """
     fig = plt.figure()
     ax = fig.add_subplot(1, 1, 1)
-    maxFrames = len(thetas)
+    max_frames = len(thetas)
 
-    dfCp = df.copy(deep=True)
+    df_cp = df.copy(deep=True)
 
     def update(i):
         """anim graph"""
         if len(thetas) > 0:
             t = thetas.pop(0)
-            dfCp['test'] = dfCp['km'].apply(lambda x: t[0] + t[1] * x)
+            df_cp['test'] = df_cp['km'].apply(lambda x: t[0] + t[1] * x)
             ax.clear()
-            ax.scatter(dfCp['price'], dfCp['km'])
-            ax.plot(dfCp['test'], dfCp['km'], color='red')
+            ax.scatter(df_cp['price'], df_cp['km'])
+            ax.plot(df_cp['test'], df_cp['km'], color='red')
 
-    a = anim.FuncAnimation(fig, update, repeat=False, interval=10, frames=maxFrames, cache_frame_data=False)
+    a = anim.FuncAnimation(fig, update, repeat=False, interval=10, frames=max_frames, cache_frame_data=False)
     plt.show()
     return a

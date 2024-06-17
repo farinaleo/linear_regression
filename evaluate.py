@@ -1,22 +1,24 @@
 import json
-from srcs.extractData import extractData
-from srcs.testModel import rSquare, rmse, mae, mse, mape, adjustedRSquare
+from srcs.extractData import extract_data
+from srcs.testModel import r_square, rmse, mae, mse, mape, adjusted_r_square
 
 
 def main():
-    df = extractData('data/data.csv')
+    df = extract_data('data/data.csv')
     thetas = ()
     with open('thetas.json', 'r') as file:
         jsonfile = json.load(file)
         thetas = [float(jsonfile['theta0']), float(jsonfile['theta1'])]
 
     df['predict'] = df['km'].apply(lambda x: thetas[0] + thetas[1] * x)
-    print(f'MAE\t:\t{mae(df)}')
-    print(f'MSE\t:\t{mse(df)}')
-    print(f'RMSE\t:\t{rmse(df)}')
-    print(f'MAPE\t:\t{mape(df)}')
-    print(f'R2\t:\t{rSquare(df)}')
-    print(f'AdjR2\t:\t{adjustedRSquare(df)}')
+    print('Lower is better')
+    print('MAE\t: {:.2f}'.format(mae(df)))
+    print('MSE\t: {:.2f}'.format(mse(df)))
+    print('RMSE\t: {:.2f}'.format(rmse(df)))
+    print('MAPE\t: {:.2f} %'.format(mape(df)))
+    print('Higher is better')
+    print('R2\t: {:.2f} %'.format(r_square(df)))
+    print('AdjR2\t: {:.2f}'.format(adjusted_r_square(df)))
 
 
 if __name__ == '__main__':

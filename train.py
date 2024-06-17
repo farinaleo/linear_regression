@@ -1,8 +1,8 @@
 import argparse
 import json
-from srcs.extractData import extractData
-from srcs.normalise import normaliseDf, denormThetas
-from srcs.trainModel import trainModel
+from srcs.extractData import extract_data
+from srcs.normalise import normalise_df, denorm_thetas
+from srcs.trainModel import train_model
 
 
 def options_parser():
@@ -19,17 +19,17 @@ def options_parser():
     return parser
 
 
-def saveThetas(thetas: list[float], fileName: str = 'thetas.json'):
+def save_thetas(thetas: list[float], file_name: str = 'thetas.json'):
     """
     Save the trained model in a json file.
     :param thetas: model.
-    :param fileName: json file.
+    :param file_name: json file.
     :return:
     """
     try:
         data = {'theta0': str(thetas[0]), 'theta1': str(thetas[1])}
 
-        with open(fileName, 'w') as file:
+        with open(file_name, 'w') as file:
             json.dump(data, file, indent=4)
 
     except Exception:
@@ -40,19 +40,19 @@ def main():
     args = options_parser().parse_args()
 
     print("Loading data...")
-    df = extractData(args.file)
+    df = extract_data(args.file)
 
     print("Normalising data...")
-    normDf = normaliseDf(df, ['km', 'price'])
+    normDf = normalise_df(df, ['km', 'price'])
 
     print("Training model...")
-    thetas = trainModel(normDf, epoch=args.epoch, learningRate=args.learningRate, plot=args.plot)
+    thetas = train_model(normDf, epoch=args.epoch, learning_rate=args.learningRate, plot=args.plot)
 
     print("Denormalising model...")
-    thetas = denormThetas(thetas, df)
+    thetas = denorm_thetas(thetas, df)
 
     print("Saving model...")
-    saveThetas(thetas)
+    save_thetas(thetas)
 
 
 if __name__ == '__main__':
