@@ -103,6 +103,13 @@ stateDiagram
 
 Gradient descent is an optimisation method commonly used to adjust the coefficients
 of a linear regression model in order to minimise a cost function.
+We search to minimise the log loss function:
+
+```math
+    L = {{1 \over m} \sum^{m - 1}_{i = 0} y^{(i)} {\log{a^{(i)}} + (1 - y^{(i)}) \log{1 - a^{(i)}}}}
+```
+
+
 
 ```python
 def gradientDescent(data, learningRate, epoch):
@@ -268,6 +275,6 @@ where $` y_i `$ are the observed values, $` \hat{y}_i `$ are the predicted value
    - **Definition** : The R² adjustment takes into account the number of predictors in the model and penalises models that are too complex.
    - **Interpretation** : It is particularly useful when comparing models with a different number of independent variables. A higher value indicates a better fitted model.
    - **Formula** :
-     $$R^2_{ajusté} = 1 - \left( \frac{(1 - R^2)(n - 1)}{n - p - 1} \right)$$
+     $$R^2_{adjusted} = 1 - \left( \frac{(1 - R^2)(n - 1)}{n - p - 1} \right)$$
      where $` n `$ is the number of observations and $` p `$ is the number of predictors.
 
