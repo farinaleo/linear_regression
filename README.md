@@ -106,7 +106,7 @@ of a linear regression model in order to minimise a cost function.
 We search to minimise the log loss function:
 
 ```math
-    L = {-{1 \over m} \sum^{m - 1}_{i = 0} y^{(i)} {\log(a^{(i)}) + (1 - y^{(i)}) \log(1 - a^{(i)})}}
+    \mathcal{L} = {-{1 \over m} \sum^{m - 1}_{i = 0} y^{(i)} {\log(a^{(i)}) + (1 - y^{(i)}) \log(1 - a^{(i)})}}
 ```
 with :
 - $a$ the equation of prediction.
@@ -117,26 +117,26 @@ with :
 
 To find the best $\theta_0$ and $\theta_1$ we want to compute, for each epoch:
 ```math
-    \theta_0 = \theta_{0(prev)} - \alpha * {\partial L \over \partial \theta_0}
+    \theta_0 = \theta_{0(prev)} - \alpha * {\partial \mathcal{L} \over \partial \theta_0}
 ```
 and
 ```math
-    \theta_1 = \theta_{1(prev)} - \alpha * {\partial L \over \partial \theta_1}
+    \theta_1 = \theta_{1(prev)} - \alpha * {\partial \mathcal{L} \over \partial \theta_1}
 ```
 
 where :
 ```math
-    {\partial L \over \partial \theta_0} =  {\partial L \over \partial a} *  {\partial a \over \partial \theta_0}
+    {\partial \mathcal{L} \over \partial \theta_0} =  {\partial \mathcal{L} \over \partial a} *  {\partial a \over \partial \theta_0}
 ```
 ```math
-    {\partial L \over \partial \theta_0} = {{1 \over m} \sum^{m -1}_{i = 0}(a^{(i)} - y^{(i)})}
+    {\partial \mathcal{L} \over \partial \theta_0} = {{1 \over m} \sum^{m -1}_{i = 0}(a^{(i)} - y^{(i)})}
 ```
 and
 ```math
-    {\partial L \over \partial \theta_1} = {\partial L \over \partial a} *  {\partial a \over \partial \theta_1}
+    {\partial \mathcal{L} \over \partial \theta_1} = {\partial \mathcal{L} \over \partial a} *  {\partial a \over \partial \theta_1}
 ```
 ```math
-    {\partial L \over \partial \theta_1} = {{1 \over m} \sum^{m - 1}_{i = 0}(a^{(i)} - y^{(i)}) * x^{(i)}}
+    {\partial \mathcal{L} \over \partial \theta_1} = {{1 \over m} \sum^{m - 1}_{i = 0}(a^{(i)} - y^{(i)}) * x^{(i)}}
 ```
 In this case $\alpha$ can be associate to our learning rate.
 
