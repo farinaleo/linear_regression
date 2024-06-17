@@ -7,6 +7,13 @@ This project lets you learn who to implement a linear regression to predict
 the price of a car  based on its mileage.
 
 ---
+### Usage
+- Run `python train.py` to train the model. With `-f <path>` you can change the data file,
+`-l <number>` you can modify the learning rate, `-e <number>` you can change the number of epochs
+and `-p` display the learning step as a graph.
+- Run `python estimate.py` to obtain the price of your according to its mileage.
+- Run `python evaluate.py` to show the evaluation of performance of the trained model.
+---
 ### Logical structure
 ```mermaid
 stateDiagram
